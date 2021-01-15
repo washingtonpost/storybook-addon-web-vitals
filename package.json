@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook",
     "release": "npm run build && auto shipit --base-branch=main",
     "next": "npm run build && auto next",
-    "canary": "npm run build && auto canary"
+    "canary": "npm run build && auto canary --force"
   },
   "author": "artmsilva",
   "license": "MIT",
