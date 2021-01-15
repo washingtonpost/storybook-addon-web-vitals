@@ -1,6 +1,6 @@
 {
   "name": "@washingtonpost/storybook-addon-web-vitals",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "See how your component fairs according to web vitals",
   "repository": {
     "type": "git",
