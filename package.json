@@ -1,6 +1,6 @@
 {
   "name": "@washingtonpost/storybook-addon-web-vitals",
-  "version": "0.0.1-canary.35ad82a.0",
+  "version": "0.0.1-canary.dc8fa8f.0",
   "description": "See how your component fairs according to web vitals",
   "repository": {
     "type": "git",
@@ -39,6 +39,9 @@
     "cls"
   ],
   "devDependencies": {
+    "@auto-it/all-contributors": "^10.9.1",
+    "@auto-it/conventional-commits": "^10.9.1",
+    "@auto-it/first-time-contributor": "^10.9.1",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
