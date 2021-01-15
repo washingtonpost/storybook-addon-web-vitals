@@ -1,3 +1,15 @@
+# v0.1.1 (Fri Jan 15 2021)
+
+#### 🐛 Bug Fix
+
+- fix: update readme and fix negative badge status ([@artmsilva](https://github.com/artmsilva))
+
+#### Authors: 1
+
+- Arturo Silva ([@artmsilva](https://github.com/artmsilva))
+
+---
+
 # v0.1.0 (Fri Jan 15 2021)
 
 #### 🚀 Enhancement
