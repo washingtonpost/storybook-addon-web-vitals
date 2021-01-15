@@ -18,4 +18,3 @@
 - Arturo Silva ([@artmsilva](https://github.com/artmsilva))
 
 ---
-
