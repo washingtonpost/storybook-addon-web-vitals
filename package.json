@@ -1,6 +1,6 @@
 {
   "name": "@washingtonpost/storybook-addon-web-vitals",
-  "version": "1.2.4",
+  "version": "0.0.0",
   "description": "See how your component fairs according to web vitals",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "start": "concurrently \"npm run storybook\" \"npm run build -- --watch\"",
     "build-storybook": "build-storybook",
     "release": "npm run build && auto shipit --base-branch=main",
-    "prerelease": "npm run build && auto shipit --base-branch=main --prerelease"
+    "next": "npm run build && auto next",
+    "canary": "npm run build && auto canary"
   },
   "author": "artmsilva",
   "license": "MIT",
@@ -58,5 +59,13 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "conventional-commits",
+      "first-time-contributor"
+    ]
   }
 }
