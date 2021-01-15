@@ -4,7 +4,7 @@ import { ADDON_ID, EVENTS } from "./constants";
 import { Badge } from "@storybook/components";
 
 const green = "positive";
-const red = "Negative";
+const red = "negative";
 
 export const WebVitalsMonitor = memo(() => {
   const [vitals, setVitals] = useAddonState(`${ADDON_ID}`, []);

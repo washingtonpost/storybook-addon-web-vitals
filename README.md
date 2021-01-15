@@ -22,7 +22,7 @@ Then, add following content to [`.storybook/main.js`](https://storybook.js.org/d
 
 ```js
 module.exports = {
-  addons: ["storybook/web-vitals"],
+  addons: ["@washingtonpost/storybook-addon-web-vitals"],
 };
 ```
 
