@@ -1,10 +1,14 @@
 {
   "name": "@washingtonpost/storybook-addon-web-vitals",
-  "version": "0.0.1-canary.dc8fa8f.0",
+  "version": "0.0.1-canary.e5ce6f1.0",
   "description": "See how your component fairs according to web vitals",
   "repository": {
     "type": "git",
     "url": "https://github.com/WPMedia/storybook-web-vitals"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "scripts": {
     "clean": "rimraf ./dist",
