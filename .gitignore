@@ -107,3 +107,4 @@ dist
 dist/
 storybook-static/
 build-storybook.log
+.npmrc
