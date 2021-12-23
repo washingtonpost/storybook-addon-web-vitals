@@ -1,3 +1,15 @@
+# v0.2.0 (Wed Dec 22 2021)
+
+#### 🚀 Enhancement
+
+- feat: update web vitals to use web vitals pkg ([@artmsilva](https://github.com/artmsilva))
+
+#### Authors: 1
+
+- Arturo Silva ([@artmsilva](https://github.com/artmsilva))
+
+---
+
 # v0.1.1 (Fri Jan 15 2021)
 
 #### 🐛 Bug Fix
