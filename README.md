@@ -2,9 +2,9 @@
 
 # Storybook Addon Web Vitals
 
-Storybook Addon Web Vitals can be used for instant feedback on loading, interactivity, and layout shift metric for each story. We use the [web-vitals](https://github.com/GoogleChrome/web-vitals) library.
+Storybook Addon Web Vitals can be used for instant feedback on loading, interactivity, and layout shift metric for each story. We use the [web-vitals](https://github.com/GoogleChrome/web-vitals).
 
-This is an alpha release. We currently only report CLS statuses.
+We report on FID, CLS, and LCP.
 
 ![React Storybook Screenshot](https://user-images.githubusercontent.com/347490/104764861-f9288e80-5735-11eb-9198-14de8a066a40.png)
 
