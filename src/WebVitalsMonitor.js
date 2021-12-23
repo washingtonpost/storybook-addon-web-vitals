@@ -7,28 +7,17 @@ const green = "positive";
 const red = "negative";
 
 export const WebVitalsMonitor = memo(() => {
-  const [vitals, setVitals] = useAddonState(`${ADDON_ID}`, []);
-  const [clsVital, setCLSVital] = useAddonState(`${ADDON_ID}/cls`, {});
-  const [fidVital, setFIDVital] = useAddonState(`${ADDON_ID}/fid`, {});
-  const [lcpVital, setLCPVital] = useAddonState(`${ADDON_ID}/lcp`, {});
+  const [results, setState] = useAddonState(ADDON_ID, []);
 
   const emit = useChannel({
-    [EVENTS.RESULT]: (vital) => {
-      if (vital.name == "CLS") {
-        setCLSVital(vital);
-      }
-      if (vital.name == "FID") {
-        setFIDVital(vital);
-      }
-      if (vital.name == "LCP") {
-        setLCPVital(vital);
-      }
-    },
+    [EVENTS.RESULT]: (newResults) => setState(newResults),
   });
 
   React.useEffect(() => {
-    setVitals([clsVital, fidVital, lcpVital]);
-  }, [clsVital, fidVital, lcpVital]);
+    emit(EVENTS.CLEAR);
+    setState([]);
+    emit(EVENTS.REQUEST);
+  }, []);
 
   const getBadgeStatus = (vital) => {
     let background = green;
@@ -53,15 +42,12 @@ export const WebVitalsMonitor = memo(() => {
 
   return (
     <>
-      {vitals &&
-        vitals.map((vital, index) => {
+      {results &&
+        results.map((result) => {
           return (
-            vital &&
-            vital.value && (
-              <Badge status={getBadgeStatus(vital)}>
-                {vital.name}: {getNormalizedValue(vital.value)}{" "}
-              </Badge>
-            )
+            <Badge status={getBadgeStatus(result)} key={result.name}>
+              Web Vitals {result.name}: {getNormalizedValue(result.value)}{" "}
+            </Badge>
           );
         })}
     </>

@@ -1,38 +1,29 @@
 import { useEffect, useChannel } from "@storybook/addons";
+import { STORY_CHANGED } from "@storybook/core-events";
 import { EVENTS } from "./constants";
+import { getLCP, getFID, getCLS } from "web-vitals";
 
-export const withWebVitals = (StoryFn, context) => {
-  const emit = useChannel({}, []);
+export const withWebVitals = (StoryFn) => {
+  const emit = useChannel({
+    [EVENTS.REQUEST]: () => {
+      emit(EVENTS.RESULT, []);
+    },
+    [STORY_CHANGED]: () => {
+      emit(EVENTS.RESULT, []);
+    },
+    [EVENTS.CLEAR]: () => {
+      emit(EVENTS.RESULT, []);
+    },
+  });
+
+  const handleReport = ({ name, id, delta, value }) => {
+    emit(EVENTS.RESULT, [{ name, id, delta, value }]);
+  };
 
   useEffect(() => {
-    let cumulativeLayoutShiftScore = 0;
-
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        // Only count layout shifts without recent user input.
-        if (!entry.hadRecentInput) {
-          cumulativeLayoutShiftScore += entry.value;
-          emit(EVENTS.RESULT, {
-            name: "CLS",
-            value: cumulativeLayoutShiftScore || 2,
-          });
-        }
-      }
-    });
-
-    try {
-      observer.observe({ type: "layout-shift", buffered: true });
-
-      // Force any pending records to be dispatched.
-      observer.takeRecords();
-    } catch (e) {
-      // Do nothing if the browser doesn't support this API.
-    }
-
-    return () => {
-      observer.disconnect();
-      console.log("shutting down");
-    };
+    getLCP(handleReport);
+    getFID(handleReport);
+    getCLS(handleReport, true);
   }, []);
 
   return StoryFn();

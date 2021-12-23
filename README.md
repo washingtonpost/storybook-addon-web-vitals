@@ -2,7 +2,7 @@
 
 # Storybook Addon Web Vitals
 
-Storybook Addon Web Vitals can be used for instant feedback on loading, interactivity, and layout shift metric for each story.
+Storybook Addon Web Vitals can be used for instant feedback on loading, interactivity, and layout shift metric for each story. We use the [web-vitals](https://github.com/GoogleChrome/web-vitals) library.
 
 This is an alpha release. We currently only report CLS statuses.
 
@@ -10,7 +10,7 @@ This is an alpha release. We currently only report CLS statuses.
 
 ## Getting Started
 
-Requires Storybook 6.1 or later. Install the latest with `npx sb upgrade --prerelease`
+Requires Storybook 6.1 or later
 
 First, install the addon
 
