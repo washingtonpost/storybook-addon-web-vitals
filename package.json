@@ -4,7 +4,7 @@
   "description": "See how your component fairs according to web vitals",
   "repository": {
     "type": "git",
-    "url": "https://github.com/WPMedia/storybook-web-vitals"
+    "url": "https://github.com/washingtonpost/storybook-web-vitals"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
