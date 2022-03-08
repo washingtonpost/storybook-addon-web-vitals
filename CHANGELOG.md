@@ -1,3 +1,20 @@
+# v0.3.0 (Tue Mar 08 2022)
+
+#### 🚀 Enhancement
+
+- feat: point to washingtonpost github org [#13](https://github.com/washingtonpost/storybook-web-vitals/pull/13) ([@artmsilva](https://github.com/artmsilva))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump nanoid from 3.1.30 to 3.2.0 [#12](https://github.com/washingtonpost/storybook-web-vitals/pull/12) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Arturo Silva ([@artmsilva](https://github.com/artmsilva))
+
+---
+
 # v0.2.1 (Wed Dec 22 2021)
 
 #### 🐛 Bug Fix
