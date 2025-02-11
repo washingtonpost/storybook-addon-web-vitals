@@ -1,4 +1,5 @@
 export const PARAM_KEY = `web-vitals`;
+export const TOOL_ID = `storybook/tool/${PARAM_KEY}`;
 export const ADDON_ID = `storybook/${PARAM_KEY}`;
 export const PANEL_ID = `${ADDON_ID}/panel`;
 

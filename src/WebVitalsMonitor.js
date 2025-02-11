@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { useChannel, useAddonState } from "@storybook/api";
+import { useChannel, useAddonState } from "@storybook/manager-api";
 import { ADDON_ID, EVENTS } from "./constants";
 import { Badge } from "@storybook/components";
 
@@ -7,6 +7,7 @@ const green = "positive";
 const red = "negative";
 
 export const WebVitalsMonitor = memo(() => {
+  console.log("is anything working?!?!");
   const [results, setState] = useAddonState(ADDON_ID, []);
 
   const emit = useChannel({
@@ -14,6 +15,7 @@ export const WebVitalsMonitor = memo(() => {
   });
 
   React.useEffect(() => {
+    console.log({ hello: results });
     emit(EVENTS.CLEAR);
     setState([]);
     emit(EVENTS.REQUEST);
@@ -44,6 +46,7 @@ export const WebVitalsMonitor = memo(() => {
     <>
       {results &&
         results.map((result) => {
+          console.log({ results });
           return (
             <Badge status={getBadgeStatus(result)} key={result.name}>
               Web Vitals {result.name}: {getNormalizedValue(result.value)}{" "}

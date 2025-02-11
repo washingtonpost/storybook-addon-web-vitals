@@ -1,4 +1,3 @@
-import { setTimeout } from "globalthis/implementation";
 import React, { useEffect, useState } from "react";
 
 const TestAd = () => (
