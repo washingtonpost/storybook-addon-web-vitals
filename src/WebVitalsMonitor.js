@@ -7,15 +7,14 @@ const green = "positive";
 const red = "negative";
 
 export const WebVitalsMonitor = memo(() => {
-  console.log("is anything working?!?!");
   const [results, setState] = useAddonState(ADDON_ID, []);
 
+  // TODO: change the way state works so we can have one badge per metric
   const emit = useChannel({
     [EVENTS.RESULT]: (newResults) => setState(newResults),
   });
 
   React.useEffect(() => {
-    console.log({ hello: results });
     emit(EVENTS.CLEAR);
     setState([]);
     emit(EVENTS.REQUEST);
@@ -46,7 +45,6 @@ export const WebVitalsMonitor = memo(() => {
     <>
       {results &&
         results.map((result) => {
-          console.log({ results });
           return (
             <Badge status={getBadgeStatus(result)} key={result.name}>
               Web Vitals {result.name}: {getNormalizedValue(result.value)}{" "}
