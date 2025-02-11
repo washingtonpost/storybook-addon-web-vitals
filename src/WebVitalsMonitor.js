@@ -6,13 +6,28 @@ import { Badge } from "@storybook/components";
 const green = "positive";
 const red = "negative";
 
-export const WebVitalsMonitor = memo(() => {
-  const [results, setState] = useAddonState(ADDON_ID, []);
+const initialState = {
+  CLS: {},
+  INP: {},
+  LCP: {},
+};
 
-  // TODO: change the way state works so we can have one badge per metric
+export const WebVitalsMonitor = memo(() => {
+  const [results, setState] = useAddonState(ADDON_ID, initialState);
+
   const emit = useChannel({
-    [EVENTS.RESULT]: (newResults) => setState(newResults),
+    [EVENTS.RESULT]: (newResult) => {
+      if (newResult.name) {
+        console.log({ newResult });
+        setState((prevState) => handleNewResults(prevState, newResult));
+      }
+    },
   });
+
+  const handleNewResults = (oldResults, newResult) => {
+    const newEntry = { [newResult.name]: newResult };
+    return { ...oldResults, ...newEntry };
+  };
 
   React.useEffect(() => {
     emit(EVENTS.CLEAR);
@@ -26,7 +41,7 @@ export const WebVitalsMonitor = memo(() => {
       background = vital.value > 0.1 ? red : green;
     }
 
-    if (vital.name === "FID") {
+    if (vital.name === "INP") {
       background = vital.value > 100 ? red : green;
     }
 
@@ -44,10 +59,14 @@ export const WebVitalsMonitor = memo(() => {
   return (
     <>
       {results &&
-        results.map((result) => {
+        Object.keys(results).map((resultName) => {
           return (
-            <Badge status={getBadgeStatus(result)} key={result.name}>
-              Web Vitals {result.name}: {getNormalizedValue(result.value)}{" "}
+            <Badge
+              status={getBadgeStatus(results[resultName])}
+              key={resultName}
+            >
+              Web Vitals {resultName}:{" "}
+              {getNormalizedValue(results[resultName].value)}{" "}
             </Badge>
           );
         })}

@@ -6,18 +6,18 @@ import { onLCP, onINP, onCLS } from "web-vitals";
 export const withWebVitals = (StoryFn) => {
   const emit = useChannel({
     [EVENTS.REQUEST]: () => {
-      emit(EVENTS.RESULT, []);
+      emit(EVENTS.RESULT, {});
     },
     [STORY_CHANGED]: () => {
-      emit(EVENTS.RESULT, []);
+      emit(EVENTS.RESULT, {});
     },
     [EVENTS.CLEAR]: () => {
-      emit(EVENTS.RESULT, []);
+      emit(EVENTS.RESULT, {});
     },
   });
 
   const handleReport = ({ name, id, delta, value }) => {
-    emit(EVENTS.RESULT, [{ name, id, delta, value }]);
+    emit(EVENTS.RESULT, { name, id, delta, value });
   };
 
   useEffect(() => {
