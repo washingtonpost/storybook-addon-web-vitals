@@ -7,11 +7,12 @@ const TestAd = () => (
       background: "red",
       width: 400,
       height: 200,
+      flex: 1,
     }}
   ></div>
 );
 
-export const Advertisement = () => {
+export const ColumnAd = () => {
   const [hasAdPlaced, placeAd] = useState(false);
 
   useEffect(() => {
@@ -21,8 +22,8 @@ export const Advertisement = () => {
   }, []);
 
   return (
-    <section>
-      <div id="content1">
+    <section style={{ display: "flex" }}>
+      <div id="content1" style={{ flex: 1 }}>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
           commodi facilis architecto libero beatae iusto obcaecati, unde
@@ -30,7 +31,7 @@ export const Advertisement = () => {
           veritatis deleniti similique debitis?
         </p>
       </div>
-      <div id="content2">
+      <div id="content2" style={{ flex: 1 }}>
         {hasAdPlaced && <TestAd />}
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
@@ -39,7 +40,7 @@ export const Advertisement = () => {
           veritatis deleniti similique debitis?
         </p>
       </div>
-      <div id="content3">
+      <div id="content3" style={{ flex: 1 }}>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
           commodi facilis architecto libero beatae iusto obcaecati, unde

@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { useChannel, useAddonState } from "@storybook/manager-api";
+import { useChannel, useAddonState, useEffect } from "@storybook/manager-api";
 import { ADDON_ID, EVENTS } from "./constants";
 import { Badge } from "@storybook/components";
 
@@ -18,7 +18,7 @@ export const WebVitalsMonitor = memo(() => {
   const emit = useChannel({
     [EVENTS.RESULT]: (newResult) => {
       if (newResult.name) {
-        console.log({ newResult });
+        console.log({ newResult }); // keeping for debugging in consuming storybooks
         setState((prevState) => handleNewResults(prevState, newResult));
       }
     },
@@ -28,6 +28,21 @@ export const WebVitalsMonitor = memo(() => {
     const newEntry = { [newResult.name]: newResult };
     return { ...oldResults, ...newEntry };
   };
+
+  // If CLS shift, highlight the element
+  React.useEffect(() => {
+    const targetSelector = results?.CLS?.attribution?.largestShiftTarget;
+    if (targetSelector) {
+      const storybookIframe = document.getElementById(
+        "storybook-preview-iframe"
+      );
+      const targetElements =
+        storybookIframe.contentDocument.querySelectorAll(targetSelector);
+      targetElements.forEach((element) => {
+        element.style.border = "2px dashed lightblue";
+      });
+    }
+  }, [results.CLS]);
 
   React.useEffect(() => {
     emit(EVENTS.CLEAR);
