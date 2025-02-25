@@ -1,7 +1,7 @@
 import { useEffect, useChannel } from "@storybook/preview-api";
 import { STORY_CHANGED } from "@storybook/core-events";
 import { EVENTS } from "./constants";
-import { onLCP, onINP, onCLS } from "web-vitals";
+import { onLCP, onINP, onCLS } from "web-vitals/attribution";
 
 export const withWebVitals = (StoryFn) => {
   const emit = useChannel({
@@ -16,8 +16,8 @@ export const withWebVitals = (StoryFn) => {
     },
   });
 
-  const handleReport = ({ name, id, delta, value }) => {
-    emit(EVENTS.RESULT, { name, id, delta, value });
+  const handleReport = (data) => {
+    emit(EVENTS.RESULT, data);
   };
 
   useEffect(() => {
