@@ -1,29 +1,29 @@
-import { useEffect, useChannel } from "@storybook/addons";
+import { useEffect, useChannel } from "@storybook/preview-api";
 import { STORY_CHANGED } from "@storybook/core-events";
 import { EVENTS } from "./constants";
-import { getLCP, getFID, getCLS } from "web-vitals";
+import { onLCP, onINP, onCLS } from "web-vitals/attribution";
 
 export const withWebVitals = (StoryFn) => {
   const emit = useChannel({
     [EVENTS.REQUEST]: () => {
-      emit(EVENTS.RESULT, []);
+      emit(EVENTS.RESULT, {});
     },
     [STORY_CHANGED]: () => {
-      emit(EVENTS.RESULT, []);
+      emit(EVENTS.RESULT, {});
     },
     [EVENTS.CLEAR]: () => {
-      emit(EVENTS.RESULT, []);
+      emit(EVENTS.RESULT, {});
     },
   });
 
-  const handleReport = ({ name, id, delta, value }) => {
-    emit(EVENTS.RESULT, [{ name, id, delta, value }]);
+  const handleReport = (data) => {
+    emit(EVENTS.RESULT, data);
   };
 
   useEffect(() => {
-    getLCP(handleReport);
-    getFID(handleReport);
-    getCLS(handleReport, true);
+    onLCP(handleReport, { reportAllChanges: true });
+    onINP(handleReport, { reportAllChanges: true });
+    onCLS(handleReport, { reportAllChanges: true });
   }, []);
 
   return StoryFn();

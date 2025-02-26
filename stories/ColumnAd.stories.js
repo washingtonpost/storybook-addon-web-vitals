@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Advertisement } from "./Advertisement";
+import { ColumnAd } from "./ColumnAd";
 
 export default {
-  title: "Example/Advertisement",
-  component: Advertisement,
+  title: "Example/ColumnAd",
+  component: ColumnAd,
 };
 
 /**
  * create 100 Advertisement components
  */
 const Template = (args) => {
-  return <Advertisement {...args} />;
+  return <ColumnAd {...args} />;
 };
 
 export const Primary = Template.bind({});

@@ -4,13 +4,13 @@
 
 Storybook Addon Web Vitals can be used for instant feedback on loading, interactivity, and layout shift metric for each story. We use the [web-vitals](https://github.com/GoogleChrome/web-vitals).
 
-We report on FID, CLS, and LCP.
+We report on INP, CLS, and LCP.
 
 ![React Storybook Screenshot](https://user-images.githubusercontent.com/347490/104764861-f9288e80-5735-11eb-9198-14de8a066a40.png)
 
 ## Getting Started
 
-Requires Storybook 6.1 or later
+Requires Storybook 8
 
 First, install the addon
 
@@ -28,4 +28,8 @@ module.exports = {
 
 ### Usage
 
-See toolbar for feedback
+See toolbar for feedback on INP, CLS and LCP
+
+CLS changes will highlight offending elements based on results from web-vitals
+
+New results are logged to the console as they come in to provide the full data object from web-vitals
