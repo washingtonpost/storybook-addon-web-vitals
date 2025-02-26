@@ -1,3 +1,33 @@
+# v0.4.0 (Wed Feb 26 2025)
+
+#### 🚀 Enhancement
+
+- Feat: upgrade to storybook 8 [#37](https://github.com/washingtonpost/storybook-addon-web-vitals/pull/37) ([@meganwalter](https://github.com/meganwalter))
+
+#### ⚠️ Pushed to `main`
+
+- docs: add contributing doc ([@artmsilva](https://github.com/artmsilva))
+- docs: add code of conduct ([@artmsilva](https://github.com/artmsilva))
+- Create PULL_REQUEST_TEMPLATE.md ([@artmsilva](https://github.com/artmsilva))
+- Add codeowners ([@artmsilva](https://github.com/artmsilva))
+- Create codeql-analysis.yml ([@artmsilva](https://github.com/artmsilva))
+- add security policy doc ([@artmsilva](https://github.com/artmsilva))
+- deleting workflow file ([@artmsilva](https://github.com/artmsilva))
+- docs: update link to github repo ([@artmsilva](https://github.com/artmsilva))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump terser from 4.8.0 to 4.8.1 [#16](https://github.com/washingtonpost/storybook-addon-web-vitals/pull/16) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump minimist from 1.2.5 to 1.2.6 [#14](https://github.com/washingtonpost/storybook-addon-web-vitals/pull/14) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@meganwalter](https://github.com/meganwalter)
+- Arturo Silva ([@artmsilva](https://github.com/artmsilva))
+
+---
+
 # v0.3.0 (Tue Mar 08 2022)
 
 #### 🚀 Enhancement
